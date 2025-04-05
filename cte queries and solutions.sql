@@ -28,14 +28,3 @@ join payroll p using(emp_id)
 join departments d using(department_id)
 group by department_name)
 select * from avg_salary;
-
-
-
-
--- Write a CTE to rank employees based on their total salary in descending order. Display employee name, department, total salary, and rank.
-
-
-
-
-
--- Create a CTE to list employees who earn more than the average salary of their department.
