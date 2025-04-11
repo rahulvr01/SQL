@@ -11,6 +11,7 @@ CREATE TABLE Employeesss (
 );
 
 
+
 INSERT INTO Employeesss VALUES
 (1, 'John', 'Doe', 1, 5000.00),
 (2, 'Jane', 'Smith', 2, 6500.00),
@@ -53,3 +54,22 @@ end //
 delimiter ;
 
 call getcountinfo (@total);
+
+
+use store;
+delimiter //
+create procedure addbonus(in empid int,inout newsalary decimal(10,2)) 
+begin 
+select salary*1.10 into newsalary from employeesss
+where emp_id = empid;
+
+update employeesss set salary = newsalary
+where emp_id=empid;
+end //
+
+delimiter //
+set @salary = 0;
+call addbonus (3,@salary);
+select @salary as newsalary;
+
+
