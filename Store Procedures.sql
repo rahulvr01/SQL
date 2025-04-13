@@ -8,6 +8,7 @@ CREATE TABLE Employeesss (
     last_name VARCHAR(50),
     department_id INT,
     salary DECIMAL(10, 2)
+    
 );
 
 
